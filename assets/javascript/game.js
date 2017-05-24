@@ -49,12 +49,14 @@ if (letters.indexOf(userInput) != -1){
 		}
 // our guess is not = to the computer choice our chanses decrease by 1		
 	else {
-        userChances = userChances - 1;
-        console.log("Chances: " + userChances);
-        guessesLeft.textContent = "Guesses left: " + userChances;
-        wrongLetters.push(userInput);
-        console.log(wrongLetters);
-        guessesSoFar.textContent = "Your guesses so far: " + wrongLetters;
+          if (wrongLetters.indexOf(userInput) === -1)  {
+            userChances = userChances - 1;
+	        console.log("Chances: " + userChances);
+	        guessesLeft.textContent = "Guesses left: " + userChances;
+	        wrongLetters.push(userInput);
+	        console.log(wrongLetters);
+	        guessesSoFar.textContent = "Your guesses so far: " + wrongLetters;
+        }
 	}	
  // if our chances = 0, than we lose the game and our losses go up by 1   
     if (userChances === 0)  {
@@ -69,6 +71,9 @@ if (letters.indexOf(userInput) != -1){
 
 
 }
+
+
+
 
 
 
